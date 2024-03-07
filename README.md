@@ -75,6 +75,7 @@ Answering the question requires you to complete the following steps:
 1. Read the search data into a DataFrame, and then slice the data to just the month of May 2020. (During this month, Mercado Libre released its quarterly financial results.) Use hvPlot to visualize the results. Do any unusual patterns exist?
 
 2. Calculate the total search traffic for the month, and then compare the value to the monthly median across all months. Did the Google search traffic increase during the month that Mercado Libre released its financial results?
+*  The sum of search traffic for May 2020 was 38,181. The overall monthly median value of search traffic was 35,172.5. Since the search traffic for May 2020 is higher than the overall monthly median, it indicates that there was indeed an increase in Google search traffic during May 2020. Based on the available data, it would be reasonable to infer that the release of MercadoLibre's financial results could have contributed to the increase in search traffic during that month.
 
 ### Step 2: Mine the Search Traffic Data for Seasonality
 
