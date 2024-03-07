@@ -73,6 +73,7 @@ The data science manager at Mercado Libre asks you if the Google search traffic 
 Answering the question requires you to complete the following steps:
 
 1. Read the search data into a DataFrame, and then slice the data to just the month of May 2020. (During this month, Mercado Libre released its quarterly financial results.) Use hvPlot to visualize the results. Do any unusual patterns exist?
+* From the plot, while there are variations in search trends, there do not appear to be any drastic outliers or unexpected spikes that would suggest an unusual event. Observing the plot, there are two peaks around May 5 and 6. These peaks indicate that there was an increase in Google search trends during these dates. Such peaks might be related to specific events or announcements that caught the public's interest and prompted more people to search for related information on Google.
 
 2. Calculate the total search traffic for the month, and then compare the value to the monthly median across all months. Did the Google search traffic increase during the month that Mercado Libre released its financial results?
 *  The sum of search traffic for May 2020 was 38,181. The overall monthly median value of search traffic was 35,172.5. Since the search traffic for May 2020 is higher than the overall monthly median, it indicates that there was indeed an increase in Google search traffic during May 2020. Based on the available data, it would be reasonable to infer that the release of MercadoLibre's financial results could have contributed to the increase in search traffic during that month.
@@ -86,8 +87,10 @@ To help Marketing, you'll want to mine the search traffic data for predictable s
 1. Group the hourly search data to plot the average traffic by the day of the week (for example, Monday vs. Friday).
 
 2. Using hvPlot, visualize this traffic as a heatmap, referencing `index.hour` for the x-axis and `index.dayofweek` for the y-axis. Does any day-of-week effect that you observe concentrate in just a few hours of that day?
+* Based on the heatmap visualization, the patterns of search traffic look similar across all days of the week, with no evident concentration of traffic in just a few hours of any specific day.It can be concluded that there isn't a pronounced day-of-week effect on search traffic concentration. Instead, the search traffic appears to be evenly distributed, suggesting that users' search activities remain consistent in terms of timing, regardless of the day.
 
 3. Group the search data by the week of the year. Does the search traffic tend to increase during the winter holiday period (weeks 40 through 52)?
+* The search average traffic tends to increase during the winter holiday period (weeks 40 through 51), but then sharply drops at the very last week of the year.
 
 ### Step 3: Relate the Search Traffic to Stock Price Patterns
 
@@ -98,6 +101,7 @@ You can find out the answer by completing the following steps:
 1. Read in and plot the stock price data. Concatenate the stock price data to the search data in a single DataFrame.
 
 2. Note that market events emerged during 2020 that many companies found difficult. But after the initial shock to global financial markets, new customers and revenue increased for e-commerce platforms. So, slice the data to just the first half of 2020 (`2020-01` to `2020-06` in the DataFrame), and then use hvPlot to plot the data. Do both time series indicate a common trend that’s consistent with this narrative?
+* It looks like both time series indicate a common trend that's consistent with the narrative of e-commerce platforms gaining new customers and revenue after the initial shock in 2020. In the plot, there is an initial drop in March 2020, reflecting the shock to global financial markets and then a subsequent upward trend in both new customers and revenue from March 2020 onwards, indicating recovery and growth in the e-commerce sector.
 
 3. Create a new column in the DataFrame named “Lagged Search Trends” that offsets, or shifts, the search traffic by one hour. Create two additional columns:
 
@@ -106,6 +110,7 @@ You can find out the answer by completing the following steps:
    - “Hourly Stock Return”, which holds the percentage of change in the company stock price on an hourly basis
 
 4. Review the time series correlation, and then answer the following question: Does a predictable relationship exist between the lagged search traffic and the stock volatility or between the lagged search traffic and the stock price returns?
+* The correlation between lagged search traffic and stock volatility is negative (-0.148938), indicating a weak inverse relationship. This suggests that periods following higher search activity slightly correlate with lower stock volatility, although the relationship is not strong. This weak correlation implies that while there might be a slight tendency, it's not strong enough to be considered highly predictable. Lagged Search Traffic and Hourly Stock Return: The correlation between lagged search traffic and hourly stock returns is positive (0.017929), but very weak, suggesting that there's almost no linear relationship. This weak correlation indicates that lagged search traffic does not have a significant or predictable impact on hourly stock returns based on linear correlation alone.
 
 ### Step 4: Create a Time Series Model by Using Prophet
 
@@ -118,10 +123,13 @@ Now, you need to produce a time series model that analyzes and forecasts pattern
 3. Plot the individual time series components of the model to answer the following questions:
 
    - What time of day exhibits the greatest popularity?
+     * In the midnight, 12:00 am.
 
    - Which day of the week gets the most search traffic?
+     * Tuesday.
 
    - What's the lowest point for search traffic in the calendar year?
+     * May to June.
 
 ### Step 5 (Optional): Forecast the Revenue by Using Time Series Models
 
